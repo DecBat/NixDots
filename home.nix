@@ -41,6 +41,5 @@ in
     syntaxHighlighting.enable = true;
     history.size = 10000;
     shellAliases = { nrs = "..."; };
-    initExtra = builtins.readFile ./config/zshrc;
   };
 }
