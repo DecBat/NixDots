@@ -50,5 +50,10 @@
     noto-fonts-color-emoji
   ];
 
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+
   system.stateVersion = "26.05";
 }
