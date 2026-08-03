@@ -17,6 +17,8 @@
     initialPassword = "changeme";
   };
 
+  
+
   environment.systemPackages = with pkgs; [ git neovim curl ];
   services.openssh.enable = true;
   programs.ssh.startAgent = true;
