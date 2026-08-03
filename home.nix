@@ -1,10 +1,8 @@
-modules = [
-  ./configuration.nix
+{ config, pkgs, ... }:
+{
+  home.username = "declan";
+  home.homeDirectory = "/home/declan";
+  home.stateVersion = "26.05";
 
-  home-manager.nixosModules.home-manager
-  {
-    home-manager.useGlobalPkgs = true;
-    home-manager.useUserPackages = true;
-    home-manager.users.declan = import ./home.nix;
-  }
-];
+  programs.home-manager.enable = true;
+}
