@@ -1,0 +1,61 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 30,
+  "spacing": 4,
+
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-center": ["clock"],
+  "modules-right": ["backlight/slider", "pulseaudio", "network", "battery", "tray"],
+
+  "hyprland/workspaces": {
+    "disable-scroll": false,
+    "all-outputs": true,
+    "format": "{id}",
+    "on-scroll-up": "hyprctl dispatch 'hl.dsp.exec_raw(\"workspace e+1\")'",
+    "on-scroll-down": "hyprctl dispatch 'hl.dsp.exec_raw(\"workspace e-1\")'"
+  },
+
+  "hyprland/window": {
+    "max-length": 50
+  },
+
+  "clock": {
+    "format": "{:%a %d %b  %H:%M}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+
+  "backlight/slider": {
+    "min": 0,
+    "max": 100,
+    "orientation": "horizontal",
+    "device": "intel_backlight"
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "\uf026",
+    "format-icons": {
+      "default": ["\uf026", "\uf027", "\uf028"]
+    },
+    "on-click": "pavucontrol"
+  },
+
+  "network": {
+    "format-wifi": "\uf1eb {signalStrength}%",
+    "format-ethernet": "\uf0e8 connected",
+    "format-disconnected": "\uf00d disconnected",
+    "tooltip-format": "{ifname} via {gwaddr}"
+  },
+
+  "battery": {
+    "states": { "warning": 30, "critical": 15 },
+    "format": "{icon} {capacity}%",
+    "format-charging": "\uf0e7 {capacity}%",
+    "format-icons": ["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"]
+  },
+
+  "tray": {
+    "spacing": 8
+  }
+}
