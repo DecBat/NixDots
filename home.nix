@@ -35,6 +35,12 @@ in
     mpv
   ];
 
-  home.file.".zshrc".source = config.lib.file.mkOutOfStoreSymlink
-  "${config.home.homeDirectory}/NixDots/config/zshrc";
+  programs.zsh = {
+    enable = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+    history.size = 10000;
+    shellAliases = { nrs = "..."; };
+    initExtra = builtins.readFile ./config/zshrc;
+  };
 }
