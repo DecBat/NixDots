@@ -15,6 +15,7 @@
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ];
     initialPassword = "changeme";
+    shell = pkgs.zsh;
   };
 
   
@@ -54,6 +55,8 @@
     enable = true;
     xwayland.enable = true;
   };
+  programs.zsh.enable = true;
+
 
   system.stateVersion = "26.05";
 }
