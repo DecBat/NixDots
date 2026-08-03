@@ -39,7 +39,12 @@
     hyprpaper
     hyprlock
     hypridle
-    hyprpolkitagent ];
+    hyprpolkitagent 
+    wl-clip-persist
+    firefox
+    nautilus          # or kdePackages.dolphin — dolphin drags in a lot of KDE
+    wireplumber
+  ];
 
 
   services.openssh.enable = true;
@@ -57,6 +62,28 @@
   };
   programs.zsh.enable = true;
 
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
+  services.greetd = {
+    enable = true;
+    settings.default_session = {
+      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+      user = "greeter";
+    };
+  };
+
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [ intel-vaapi-driver libvdpau-va-gl ];
+  };
+  services.fstrim.enable = true;
+  services.tlp.enable = true;
 
   system.stateVersion = "26.05";
 }
