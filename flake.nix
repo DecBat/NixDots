@@ -7,15 +7,13 @@
       specialArgs = { inherit inputs; };
 
       modules = [
-        ./hosts/x1c/default.nix
-        ./modules/common.nix
-        ./modules/desktop.nix
+        ./configuration.nix
 
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.declan = import ./home/declan.nix;
+          home-manager.users.declan = import ./home.nix;
         }
       ];
     };
